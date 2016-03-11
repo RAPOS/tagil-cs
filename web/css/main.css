@@ -1,0 +1,124 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,300,700,500italic,300italic,400&subset=cyrillic,cyrillic-ext,latin);
+@media (max-width: 395px) {
+    .navbar-brand img {
+        width: 275px;
+		height: auto;
+    }
+}
+@media (max-width: 359px) {
+    .navbar-brand img {
+        width: 215px;
+		height: auto;
+    }
+}
+body{
+	background: url(../images/bg.png) repeat;
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+#main-menu.navbar-default .navbar-toggle {
+    margin-top: 30px;
+}
+#main-menu.navbar-default {
+    font-size: 12px;
+    background-color: #474747;
+    border: 0;
+}
+/***Формы***/
+.pre_form{
+	float: right;
+	width: 325px;
+	height: 350px;
+	position: relative;
+	overflow: hidden;
+}
+.form_backup{z-index: 100;}
+.form_auth{z-index: 110;}
+.form_reg{z-index: 120;}
+.form_auth, .form_reg, .form_backup{
+	position: absolute;
+	width: 300px;
+	min-height: 100px;
+	background-color: #fff;
+	top: 10px;
+	right: -320px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 6px #000;
+	margin-bottom: 5px;
+}
+#form_auth_head img, #form_reg_head img, #form_backup_head img{
+	width: 32px;
+	float: left;
+	margin-left: 15px;
+}
+#form_auth_head div, #form_reg_head div, #form_backup_head div{
+	float: left;
+	text-shadow: 0px 0px 6px #fff;
+}
+.form_auth div#form_auth_head, .form_reg div#form_reg_head, .form_backup div#form_backup_head{
+	background-color: #474747;
+	position: relative;
+	color: #fff;
+	padding: 15px;
+	font-size: 32px;
+	font-weight: 400;
+	border-radius: 5px 5px 0 0;
+}
+.form_auth div#form_auth_head img:last-child, .form_reg div#form_reg_head img:last-child, .form_backup div#form_backup_head img:last-child{
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.form_auth_login, .form_auth_psw, .form_reg_login, .form_reg_email, .form_reg_psw, .form_backup_email{
+	padding-top: 15px;
+	padding-left: 35px;
+}
+.form_auth_login input, .form_auth_psw input, .form_reg_login input, .form_reg_email input, .form_reg_psw input,
+.form_backup_email input{
+	width: 210px;
+	height: 30px;
+	border-radius: 3px;
+	border: none;
+	background-color: #DEDEDE;
+	margin-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 22px;
+	color: #454545;
+}
+.form_auth_psw a{
+	color: rgb(0, 117, 215);
+	font-size: 12px;
+	text-decoration: underline;
+	margin-left: 70px;
+	cursor: pointer;
+}
+.form_auth_psw a:hover{
+	color: rgb(4, 140, 255);
+}
+.form_auth_psw a:active{
+	color: rgb(0, 99, 182);
+}
+.form_auth_submit, .form_reg_submit, .form_backup_submit{
+	width: 230px;
+	background-color: #474747;
+	color: #fff;
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-left: 35px;
+	margin-bottom: 15px;
+	font-size: 18px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+.form_auth_submit:hover, .form_reg_submit:hover, .form_backup_submit:hover{
+	background-color: #333;
+}
+.form_auth_submit:active, .form_reg_submit:active, .form_backup_submit:active{
+	background-color: #555;
+}
