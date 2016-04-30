@@ -1,8 +1,9 @@
 var open_form = 0;
 var open_form2 = 0;
 var open_form3 = 0;
+
 $(document).ready(function(){
-	//Авторизация
+	// РђРІС‚РѕСЂРёР·Р°С†РёСЏ
 	$('#auth').click(function(){
 		open_form = 1;
 		if($('.form_reg').css('right') == "15px"){
@@ -23,7 +24,7 @@ $(document).ready(function(){
 			}, 500);
 		}
 	});
-	//Регистрация
+	// Р РµРіРёСЃС‚СЂР°С†РёСЏ
 	$('#reg').click(function(){
 		open_form2 = 1;
 		if($('.form_auth').css('right') == "15px"){
@@ -44,8 +45,9 @@ $(document).ready(function(){
 			}, 500);
 		}
 	});
-	//Восстановление пароля
+	// Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ
 	$('#backup_psw').click(function(){
+		open_form3 = 1;
 		$('.form_auth').animate({
 			right: "-320px",
 		}, 500, function(){
@@ -53,7 +55,7 @@ $(document).ready(function(){
 			open_form2 = 0;
 		});
 	});
-	//Закрытие форм
+	// Р—Р°РєСЂС‹С‚РёРµ С„РѕСЂРјС‹
 	$('.form_close').click(function(){
 		open_form = 0;
 		open_form2 = 0;
