@@ -54,6 +54,12 @@ $(document).ready(function(){
 			open_form = 0;
 			open_form2 = 0;
 		});
+		if($('.form_backup').css('right') == "-320px"){
+			$('.form_backup').animate({
+				right: "15px",
+			}, 500);
+			open_form3 = 0;
+		}
 	});
 	// Закрытие формы
 	$('.form_close').click(function(){

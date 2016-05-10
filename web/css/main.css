@@ -1,4 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,300,700,500italic,300italic,400&subset=cyrillic,cyrillic-ext,latin);
+
+/* Меню */
+.navbar-default .navbar-nav > li > a {
+	color: #FFF!important;
+	font-size: 16px!important;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #05FF5F!important;
+	background-color: transparent;
+}
+@media (min-width: 768px) {
+	.navbar-nav {
+		margin-top: 20px!important;
+	}
+}
 @media (max-width: 395px) {
     .navbar-brand img {
         width: 275px;
@@ -11,6 +26,7 @@
 		height: auto;
     }
 }
+
 body{
 	background: url(../images/bg.png) repeat;
 	font-family: 'Roboto', sans-serif;
@@ -26,12 +42,13 @@ body{
     background-color: #474747;
     border: 0;
 }
+
 /***Формы***/
 .pre_form{
-	float: right;
+	right: 0;
 	width: 325px;
-	height: 350px;
-	position: relative;
+	height: 400px;
+	position: absolute;
 	overflow: hidden;
 }
 .form_backup{z-index: 100;}
@@ -45,7 +62,7 @@ body{
 	top: 10px;
 	right: -320px;
 	border-radius: 5px;
-	box-shadow: 0px 0px 6px #000;
+	box-shadow: 0 0 6px #000;
 	margin-bottom: 5px;
 }
 #form_auth_head img, #form_reg_head img, #form_backup_head img{
@@ -55,7 +72,7 @@ body{
 }
 #form_auth_head div, #form_reg_head div, #form_backup_head div{
 	float: left;
-	text-shadow: 0px 0px 6px #fff;
+	text-shadow: 0 0 6px #fff;
 }
 .form_auth div#form_auth_head, .form_reg div#form_reg_head, .form_backup div#form_backup_head{
 	background-color: #474747;
@@ -78,7 +95,7 @@ body{
 }
 .form_auth_login input, .form_auth_psw input, .form_reg_login input, .form_reg_email input, .form_reg_psw input,
 .form_backup_email input{
-	width: 210px;
+	width: 230px;
 	height: 30px;
 	border-radius: 3px;
 	border: none;
@@ -121,4 +138,11 @@ body{
 }
 .form_auth_submit:active, .form_reg_submit:active, .form_backup_submit:active{
 	background-color: #555;
+}
+
+
+
+/* Контент */
+.wrap > .container {
+	margin-top: 100px!important;
 }

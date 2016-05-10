@@ -60,85 +60,14 @@ class SiteController extends Controller
     }
 
     public function actionIndex(){
-		$mainpage = BMainpage::find()->where(['site' => 1])->one();
-		$title_h1 = $mainpage->title_h1;
-		$title_h2 = $mainpage->title_h2;
-		$text_1 = $mainpage->text_1;
-		$text_2 = $mainpage->text_2;
-		$images = $mainpage->images;
-		
-		$masters = BMasters::find()->all();
-		$actions = BActions::find()->one();	
-		$BReviews = BReviews::find()->where('moderate = 1')->all();	
-		$sertificate = BSertificates::find()->where(['site' => 1])->one();
 	
-        return $this->render('index', ['title_h1' => $title_h1, 'text_1' => $text_1, 'title_h2' => $title_h2, 'text_2' => $text_2, 'masters' => $masters, 'sertificate' => $sertificate, 'images' => $images, 'actions' => $actions, 'reviews' => $BReviews]);
+        return $this->render('index');
     }
 	
     public function actionActions(){
 		$actions = BActions::find()->all();	
 		
         return $this->render('actions',['actions' => $actions]);
-    }	
-
-    public function actionReviews(){
-		$model = new BReviews;
-		$reviews = BReviews::find()->where('moderate = 1')->orderBy('id DESC')->all();
-		if(Yii::$app->request->post()){
-			if($_SESSION['__captcha/site/captcha'] != $_POST['BReviews']['verifyCode']){
-				Yii::$app->getSession()->setFlash('captcha', 'false');
-
-				if($_POST['BReviews']['section'] == 'masters' || $_POST['BReviews']['section'] == 'programs'){
-					return $this->redirect('/'.$_POST['BReviews']['section'].'/'.$_POST['BReviews']['translate']);
-				} else {
-					return $this->redirect([$_POST['BReviews']['section']]);
-				}
-			}
-			if($model->load(Yii::$app->request->post()) && $model->validate()){
-				$message = $model->text;
-				$message = str_replace(":)", "<img src='/images/smiles/ab.gif' alt=''/>", $message);
-				$message = str_replace("8-)", "<img src='/images/smiles/24.gif' alt=''/>", $message);
-				$message = str_replace(";)", "<img src='/images/smiles/105.gif' alt=''/>", $message);
-				$message = str_replace(":yahoo:", "<img src='/images/smiles/bp.gif' alt=''/>", $message);
-				$message = str_replace(":think:", "<img src='/images/smiles/73.gif' alt=''/>", $message);
-				$message = str_replace(":cool:", "<img src='/images/smiles/33.gif' alt=''/>", $message);
-				$message = str_replace(":yes:", "<img src='/images/smiles/109.gif' alt=''/>", $message);
-				$message = str_replace(":ok:", "<img src='/images/smiles/56.gif' alt=''/>", $message);
-				$message = str_replace(":dance:", "<img src='/images/smiles/21.gif' alt=''/>", $message);
-				$message = str_replace(":drug:", "<img src='/images/smiles/31.gif' alt=''/>", $message);
-				$message = str_replace(":read:", "<img src='/images/smiles/65.gif' alt=''/>", $message);
-				$message = str_replace(":aplo:", "<img src='/images/smiles/15.gif' alt=''/>", $message);
-				$model->text = $message;
-				$model->translate = $_POST['BReviews']['translate'];
-				$model->ip = $_SERVER['REMOTE_ADDR'];		
-				$model->date = time();
-				if($model->save()){
-					Yii::$app->getSession()->setFlash('save', 'true');
-					if($model->section == 'masters' || $model->section == 'programs'){
-						return $this->redirect('/'.$model->section.'/'.$_POST['BReviews']['translate']);
-					} else {
-						return $this->redirect([$model->section]);
-					}
-				}
-			}
-		}
-		if(Yii::$app->getSession()->getFlash('captcha')){
-			$captcha = false;
-		} else {
-			$captcha = true;
-		}
-		if(Yii::$app->getSession()->getFlash('save')){
-			$save = true;
-		} else {
-			$save = false;
-		}
-		
-        return $this->render('reviews', [
-			'model' => $model,
-			'reviews' => $reviews,
-			'captcha' => $captcha,
-			'save' => $save,
-		]);
     }
 	
     public function actionContacts(){

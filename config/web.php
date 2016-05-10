@@ -24,8 +24,8 @@ $config = [
         'user' => [
             'identityClass' => 'app\modules\admin\models\BAdmins',
             'enableAutoLogin' => true,
-			'loginUrl' => ['/admin/login'],
-			'returnUrl' => ['/admin'],
+			'loginUrl' => ['/login'],
+			'returnUrl' => ['/'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -60,13 +60,6 @@ $config = [
                     'controller' => ['api' => 'api']
                 ],
 				''=>'site/index',
-				'admin' => 'admin/default/index',
-				'admin/actions' => 'admin/actions/index',
-				'admin/feedback' => 'admin/feedback/index',
-				'admin/masters' => 'admin/masters/index',
-				'admin/programs' => 'admin/programs/index',
-				'admin/reviews' => 'admin/reviews/index',
-				'admin/<action:\w+>' => 'admin/default/<action>',
 				'<action:\w+>'=>'site/<action>',
 				'<action:\w+>/<name:\w+>'=>'site/<action>',
 			],

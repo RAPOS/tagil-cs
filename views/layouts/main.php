@@ -53,7 +53,7 @@ AppAsset::register($this);
 		'items' => [
 			['label' => 'Home', 'url' => Url::to(['/site/index'])],
 			['label' => 'About', 'url' => ['/site/about']],
-			['label' => 'Contact', 'url' => Url::to(['/site/contact'])],
+			'<li>'.Html::a('Регистрация', '#', ['id' => 'reg']).'</li>',
 			Yii::$app->user->isGuest ? (
 				'<li>'.Html::a('Авторизация', '#', ['id' => 'auth']).'</li>'
 			) : (
@@ -70,8 +70,8 @@ AppAsset::register($this);
 	]);
 	NavBar::end();
 	?>
+	<?= $this->render('/site/_form_auth');?>
 	<!--Header-->
-	<?print $this->render('/site/_form_auth');?>
 	<div class="container">
 		<?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
